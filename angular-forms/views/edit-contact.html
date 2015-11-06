@@ -16,20 +16,35 @@
            ng-if="contactForm.lnameImp.$error.required">Last Name is Required</p>
     </div>
     <div class="form-group">
+        <!--label for attribute must match an id, rather than a name-->
         <label for="phoneImp">Phone Number:</label>
         <input type="text" class = "form-control" id = "phoneImp"
                name = "phoneImp" ng-model = "contact.phone"
-               pattern = "\d{3}-\d{3}-\{4}"/>
+               pattern = "\d{3}-\d{3}-\d{4}"/>
         <!--pattern has regular expression to make sure it it a phone number-->
         <!-- /d means digit-->
+        <!--contact form and phoneImp match the name properties-->
         <p class = "validation-error"
            ng-if="contactForm.phoneImp.$error.pattern">Phone must be xxx-xxx-xxxx</p>
     </div>
     <div class="form-group">
         <label for="dobImp">Birthdate:</label>
         <input type="text" class = "form-control" id = "dobImp"
-               name = "dobImp" ng-model = "contact.dob"/>
+               name = "dobImp" ng-model = "contact.dob" in-the-past/>
+        <!--register validator inThePast - camelcase form becomes form with dashes-->
+        <p class = "validation-error" ng-if="contactForm.dobImp.$error.inThePast">Birthday must be in the past</p>
     </div>
+
+    <div class="form-group">
+        <label for="shoeInp">Shoe Size</label>
+        <input type="number" class = "form-control" id = "shoeInp" name = "shoeInp" ng-model="contact.shoeSize"
+                required min = "4" max = "17"/>
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.min">Shoe size must be at least 4</p>
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.max">Shoe size must be less than 18</p>
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.required">Shoe size is required</p>
+
+    </div>
+
     <div class="form-group">
         <a class = "btn btn-default" ui-sref="list">Cancel</a>
         <!--Save button is disabled if the contact form is invalid in any way-->
