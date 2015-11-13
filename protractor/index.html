@@ -38,6 +38,7 @@
                            placeholder="new task title"
                            autofocus
                            required/>
+                           <!--title-required-error is to select this element in the testing-->
                     <p class="validation-error title-required-error"
                        ng-if="newTaskForm.titleInp.$dirty && newTaskForm.titleInp.$error.required">
                         please enter a task title
