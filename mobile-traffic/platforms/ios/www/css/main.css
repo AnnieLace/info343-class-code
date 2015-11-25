@@ -1,0 +1,27 @@
+/* add your CSS rules here */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#map {
+    height: 100%
+}
+
+.sdot {
+    color: #90C;
+}
+
+.wsdot {
+    color: #06F;
+}
+
+#cam-filter-field {
+    width: 350px;
+}
+
+h1, p {
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 300;
+}
